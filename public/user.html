@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="logged.mjs" defer type="module"></script>
+    <link rel="shortcut icon" href="src/passport-svgrepo-com.svg" type="image/x-icon">
+    <link rel="stylesheet" href="styles/index.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com" defer></script>
+    <title>Dashboard - CPCS</title>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <header class="bg-white shadow w-full" style="position: fixed; z-index: 1;">
+    <div class="navbar p-5 container mx-auto">
+      <div class="flex-1">
+        <h1 class="text-center text-2xl font-semibold text-black">Course Portal</h1>
+      </div>
+      <div class="flex-none gap-2">
+        <div class="dropdown dropdown-end">
+          <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+            <div class="w-10 rounded-full">
+              <img id="profile_img" alt="profile_img" src="https://freepngimg.com/thumb/facebook/62681-flat-icons-face-computer-design-avatar-icon.png" />
+            </div>
+          </div>
+          <ul tabindex="0" class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-white rounded-box w-52 text-black">
+            <!-- <li>
+              <a class="justify-between">
+                Profile
+              </a>
+            </li>
+            <li><a>Settings</a></li> -->
+            <li id="logout"><a>Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section class="container mx-auto mt-28 my-3" >
+    <div class="bg-white p-6 rounded-lg">
+      <div class="space-y-4">
+        <section class="mx-auto w-full max-w-7xl px-4 py-4">
+          <div class="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
+            <div>
+              <h2 class="text-lg font-semibold">Your Courses</h2>
+              <p class="mt-1 text-sm text-gray-700">
+                This is a list of all your registered Courses sessions.<br>
+                 Any upcoming lecture and schedule of Course programs will be personally mailed to you 
+            </div>
+            <div>
+            </div>
+          </div>
+          <div class="mt-6 flex flex-col">
+            <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                <div class="overflow-hidden border border-gray-200 md:rounded-lg">
+                  <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                      <tr class="divide-x divide-gray-200">
+                        <th
+                          scope="col"
+                          class="px-4 py-3.5 text-left text-sm font-normal text-gray-500 thms "
+                        >
+                          <span
+                          >
+                          Mentor
+                        </span>
+                        </th>
+                        <th
+                        scope="col"
+                        class="px-4 py-3.5 text-left text-sm font-normal text-gray-500 thms"
+                      >
+                        Teaching Assistant
+                    </th>
+                        <th
+                          scope="col"
+                          class="px-12 py-3.5 text-left text-sm font-normal text-gray-500"
+                        >
+                            Title
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-4 py-3.5 text-left text-sm font-normal text-gray-500"
+                        >
+                          Status
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 bg-white loaded " id ="registered">
+                      <tr class="divide-x divide-gray-200 demo hidden">
+                        <td class="whitespace-nowrap px-4 py-4 thms">
+                          <div class="flex items-center">
+                            <div class="h-10 w-10 flex-shrink-0">
+                              <img
+                                class="h-10 w-10 rounded-full object-cover"
+                                src="https://images.unsplash.com/photo-1628157588553-5eeea00af15c?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1160&amp;q=80"
+                                alt=""
+                              />
+                            </div>
+                            <div class="ml-4">
+                              <div class="text-sm font-medium text-gray-900">
+                                John Doe
+                              </div>
+                              <div class="text-sm text-gray-500">john@devui.com</div>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="whitespace-nowrap px-4 py-4 thms">
+                          <div class="flex items-center">
+                            <div class="h-10 w-10 flex-shrink-0">
+                              <img
+                                class="h-10 w-10 rounded-full object-cover"
+                                src="https://images.unsplash.com/photo-1628157588553-5eeea00af15c?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1160&amp;q=80"
+                                alt=""
+                              />
+                            </div>
+                            <div class="ml-4">
+                              <div class="text-sm font-medium text-gray-900">
+                                John Doe
+                              </div>
+                              <div class="text-sm text-gray-500">john@devui.com</div>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="whitespace-nowrap px-12 py-4">
+                          <div class="text-sm text-gray-900">Front-end Developer</div>
+                          <div class="text-sm text-gray-500">Engineering</div>
+                          <button class="btn bg-white btn-xs text-black relative hover:text-white mt-3 mb-4" > <a href="https://t.me/+CVw62gS_zRhkN2Zl"> know More </a></button>
+
+                        </td>
+                        <td class="whitespace-nowrap px-4 py-4">
+                          <span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">
+                            Active
+                          </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+          </div>
+        </div>
+  </section>
+  <section class="container mx-auto my-3" >
+    <div class="bg-white p-6 rounded-lg">
+      <div class="space-y-4">
+        <section class="mx-auto w-full max-w-7xl px-4 py-4">
+          <div class="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
+            <div>
+              <h2 class="text-lg font-semibold">Upcoming Courses</h2>
+              <p class="mt-1 text-sm text-gray-700">
+                This is a list of all of the Courses sessions which are available to register for. 
+            </div>
+            <div>
+            </div>
+          </div>
+          <div class="mt-6 flex flex-col">
+            <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                <div class="overflow-hidden border border-gray-200 md:rounded-lg">
+                  <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                      <tr class="divide-x divide-gray-200">
+                        <th
+                          scope="col"
+                          class="px-4 py-3.5 text-left text-sm font-normal text-gray-500 thms "
+                        >
+                          <span
+                          >
+                          Mentor
+                        </span>
+                        </th>
+                        <th
+                        scope="col"
+                        class="px-4 py-3.5 text-left text-sm font-normal text-gray-500 thms"
+                      >
+                        Teaching Assistant
+                    </th>
+                        <th
+                          scope="col"
+                          class="px-12 py-3.5 text-left text-sm font-normal text-gray-500"
+                        >
+                            Title
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-4 py-3.5 text-left text-sm font-normal text-gray-500"
+                        >
+                          Time left
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 bg-white " id="append_reg">
+                      <tr class="divide-x divide-gray-200 hidden" id = "temp_f">
+                        <td class="whitespace-nowrap px-4 py-4 thms">
+                          <div class="flex items-center">
+                            <div class="h-10 w-10 flex-shrink-0">
+                              <img
+                                class="h-10 w-10 rounded-full object-cover"
+                                src="https://i.ibb.co/bLG5q82/Whats-App-Image-2024-04-15-at-23-10-47-71f89619.jpg"
+                                alt=""
+                              />
+                            </div>
+                            <div class="ml-4">
+                              <div class="text-sm font-medium text-gray-900 mentor">
+                                Hemang Choudhary
+                              </div>
+                              <div class="text-sm text-gray-500 "><a href="mailto:coehemang@gmail.com" class="email">coehemang@gmail.com</a></div>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="whitespace-nowrap px-4 py-4 thms">
+                          <div class="flex items-center">
+                            <div class="h-10 w-10 flex-shrink-0">
+                              <img
+                                class="h-10 w-10 rounded-full"
+                                src="https://i.ibb.co/Zc7sSzK/Firefly-20240604104327.png"
+                                alt=""
+                                style="object-fit: cover;"
+                              />
+                            </div>
+                            <div class="ml-4">
+                              <div class="text-sm font-medium text-gray-900 ta">
+                                Girish Garg
+                              </div>
+                              <div class="text-sm text-gray-500"><a href="mailto:girishgarg2020@gmail.com"class="email">girishgarg2020@gmail.com</a></div>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="whitespace-nowrap px-12 py-4">
+                          <div class="text-sm text-gray-900 mt-3 title" style="position:relative ;">
+                          Web development Basics</div>
+                          <div class="text-sm text-gray-500 type">Engineering</div>
+                          <button class="btn bg-white btn-xs text-black relative hover:text-white mt-3 mb-4 button" > <a target="_blank" href=""> Join Group </a></button>
+                          <button class="btn bg-white btn-xs text-black relative hover:text-white mt-3 mb-4 buttonl" > <a target="_blank" href=""> Join Meet </a></button>
+                          <button class="relative top-[-17px] btn bg-white btn-xs text-black relative hover:text-white mt-3 mb-4 buttonr block" > <a target="_blank" href=""> Add to Calender </a></button>
+
+                          <br>
+                          <button class="btn bg-white btn-xs text-black relative hover:text-white  mb-4 add" >Register for this Course</button>
+                        </td>
+                        <td class="whitespace-nowrap px-4 py-4 ">
+                          <span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800 time">
+                            1h:20m:20s 
+                          </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+          </div>
+        </div>
+  </section>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
