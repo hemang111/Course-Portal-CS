@@ -1,5 +1,6 @@
 # Ignore the environment variable file
 .env
-
+python_mongo.py
 # Ignore node_modules directory
 node_modules/
+bfg.jar
