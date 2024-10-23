@@ -1,8 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAuth} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { handleAuthStateChange,setupLogoutButton } from "./functions/auth_user.js";
-import { mongo_fetch } from "./functions/mongo.js";
-import { fetchFirebaseConfig } from './functions/firebasconfig.js';
+import { handleAuthStateChange,setupLogoutButton } from "./functions/auth_user.mjs";
+import { mongo_fetch } from "./functions/mongo.mjs";
+import { fetchFirebaseConfig } from './functions/firebasconfig.mjs';
 async function initFirebase() {
   try {
       const firebaseConfig = await fetchFirebaseConfig();

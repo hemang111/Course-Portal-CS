@@ -1,6 +1,6 @@
 let timecourses = {}
 import members from "../members.mjs";
-import { timeupdateR ,timeupdate} from "./timeupdaterR.js";
+import { timeupdateR ,timeupdate} from "./timeupdaterR.mjs";
 
 export function loaddata(datai,query ){
     (Object.keys(datai.courses)).forEach(element => {

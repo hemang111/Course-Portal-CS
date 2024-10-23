@@ -1,5 +1,5 @@
-import { registerit } from "./registerit.js";
-import { loaddata } from "./loaddata.js";
+import { registerit } from "./registerit.mjs";
+import { loaddata } from "./loaddata.mjs";
 export async function mongo_fetch(user){
     const Data = {
       email: user.email,
