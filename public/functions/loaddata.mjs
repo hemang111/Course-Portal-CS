@@ -45,7 +45,10 @@ export function loaddata(datai,query ){
         document.getElementById('append_reg').appendChild(clonetemp);
       }
   })
+  document.getElementById('main').style.display = "block";
+  document.getElementById('loader').style.display = "none";
   setInterval(() => {
     timeupdate(timecourses);
   }, 100);
 }
+
