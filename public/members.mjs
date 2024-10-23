@@ -11,7 +11,7 @@ const members  = {
       'email' : 'learnyashwardhan@gmail.com',
       'profilepic': 'https://i.ibb.co/dtBvfB0/Screenshot-2024-10-21-232624.png'
     },
-    'Jatin Soni':{
+    'Jatin Kumar':{
       'email': 'jatinkumarsoni2004@gmail.com',
       'profilepic':'https://i.ibb.co/X3JHBcB/Whats-App-Image-2024-10-23-at-08-20-20-d3d9ffc1.jpg'
     }
