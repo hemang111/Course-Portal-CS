@@ -31,7 +31,9 @@ export function loaddata(datai,query ){
         clonetemp.querySelector('.buttonl').style.display = 'none';
         clonetemp.querySelector('.button').querySelector('a').setAttribute('href',`${datai.courses[element].glink}`);
         clonetemp.querySelector('.buttonr').querySelector('a').setAttribute('href',`${datai.courses[element].clink}`);
+        console.log(datai.courses[element]);
         setInterval( ()=>{
+        console.log(datai.courses[element]);
         timeupdateR(clonetemp,datai.courses[element]);
         },100)
         document.getElementById('registered').appendChild(clonetemp);

@@ -18,7 +18,10 @@ async function data(dataas, datam) {
       Date: documents[0].Date_of_reg,
       Time: documents[0].Time_of_reg,
       type: documents[0].Type,
-      glink: documents[0].glink
+      status: documents[0].Status,
+      Wt: documents[0].Webinar_time,
+      Wd: documents[0].Webinar_date,
+      d: documents[0].Duration,
     };
   }
 }
@@ -88,11 +91,11 @@ router.post('/registeredcourses', async(req,res)=>{
       if (existingUser) {
         const registeredCourses = existingUser.registeredcourses;
         console.log(registeredCourses);
-        await Promise.all( registeredCourses.map(async element =>{
-         await dataa(element,datar)
-      }));
+        for (const element of registeredCourses) {
+          await dataa(element, datar);
+        };
        res.status(200).json({ message: 'User data fetched', courses: datar }); // Use 'courses' instead of 'user' for clarity
-      } else {
+       } else {
         res.status(404).json({ message: 'User not found' }); // Informative message for missing user
       }
   } catch(err){

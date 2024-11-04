@@ -35,7 +35,7 @@ export function timeupdateR(object, element) {
           object.querySelector('.buttonl').style.display = "flex";
           object.querySelector('.buttonl').querySelector('a').setAttribute('href', `${element.mlink}`);
       }
-  } else if (date_dead.valueOf() <= date2.valueOf() && date_end.valueOf() > date2.valueOf()) {
+  } else if (date_dead.valueOf() <= date2.valueOf() && date_dead.valueOf() > date2.valueOf()) {
       object.querySelector('.buttonl').style.display = "flex";
       object.querySelector('.time').innerText = `Live`;
       if (!isappended) {

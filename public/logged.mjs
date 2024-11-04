@@ -13,8 +13,7 @@ async function initFirebase() {
       setupLogoutButton(auth);
       // Initialize Firebase
      // firebase.initializeApp(firebaseConfig);
-      console.log('Firebase initialized successfully');
-      
+      console.info('Firebase initialized successfully');
       // Proceed with your application logic, e.g., setting up authentication
   } catch (error) {
       console.error('Error initializing Firebase:', error);
